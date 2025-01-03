@@ -60,42 +60,18 @@ export default function Home() {
       <main className="flex-grow container mx-auto px-4 py-6 sm:py-8 max-w-3xl">
         <header className="mb-6 sm:mb-8">
           <h1 className="text-3xl sm:text-4xl font-bold mb-2">
-            Fullstack Developer & ML Enthusiast
+            Thomas Cormican
           </h1>
           <p className="text-lg sm:text-xl text-muted">
-            Keep improving. Keep learning.
+            Fullstack Developer, ML Enthusiast and Computer Science Student
           </p>
         </header>
-
-        {/* Image placeholder */}
-        <div className="w-full h-24 sm:h-32 mb-6 sm:mb-8 relative overflow-hidden">
-          <Image
-            src="/cover-image.jpg" // Replace with your image path
-            alt="Your chosen image"
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
 
         <Section id="about" title="About">
           <p className="text-lg">
             Computer Science student at Maynooth University, exploring the
             intersection of web development and machine learning.
           </p>
-          <Link
-            className="text-blue-400 underline"
-            href="https://www.youtube.com/watch?v=y9ygGm_rwpg"
-          >
-            it&apos;s going to be a fine night tonight
-          </Link>
-          <Image
-            src="/aviator.jpg"
-            className="mt-2"
-            alt="Your chosen image"
-            width={500}
-            height={500}
-            objectFit="cover"
-          />
         </Section>
 
         <Section id="education" title="Education">
