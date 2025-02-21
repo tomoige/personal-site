@@ -62,15 +62,11 @@ export default function Home() {
           <h1 className="text-3xl sm:text-4xl font-bold mb-2">
             Thomas Cormican
           </h1>
-          <p className="text-lg sm:text-xl text-muted">
-            Fullstack Developer, ML Enthusiast and Computer Science Student
-          </p>
         </header>
 
         <Section id="about" title="About">
           <p className="text-lg">
-            Computer Science student at Maynooth University, exploring the
-            intersection of web development and machine learning.
+            Computer Science student at Maynooth University.
           </p>
         </Section>
 
