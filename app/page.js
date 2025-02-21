@@ -57,7 +57,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow container mx-auto px-4 py-6 sm:py-8 max-w-3xl">
+      <main className="flex-grow container mx-auto px-16 py-6 sm:py-8 max-w-3xl">
         <header className="mb-6 sm:mb-8">
           <h1 className="text-3xl sm:text-4xl font-bold mb-2">
             Thomas Cormican
