@@ -126,8 +126,8 @@ export default function Home() {
             />
             <ProjectLink
               href="/"
-              title="This Website"
-              desc="I worked really hard on it, trust me."
+              title="Portfolio Site"
+              desc="This website"
               github="https://github.com/tomoige/personal-site"
             />
             <ProjectLink
