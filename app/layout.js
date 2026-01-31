@@ -1,15 +1,14 @@
-import "@fontsource/space-mono"; // Changed font to Space Mono for a more indie look
 import "./globals.css";
 
 export const metadata = {
-  title: "Thomas Cormican - Dev",
-  description: "Fullstack Dev & ML Enthusiast",
+  title: "Thomas Cormican",
+  description: "Computer Science student at Maynooth University.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-black text-white antialiased">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

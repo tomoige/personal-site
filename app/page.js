@@ -1,172 +1,217 @@
 import Link from "next/link";
 import Navbar from "./components/Navbar";
-import { FiGithub, FiMail, FiExternalLink } from "react-icons/fi";
-import Image from "next/image";
+import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 
 const Section = ({ id, title, children }) => (
-  <section id={id} className="mb-8 sm:mb-12">
-    <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 pb-2 border-b border-muted">
+  <section id={id} className="mb-12">
+    <h2 className="text-sm font-medium text-muted uppercase tracking-wider mb-4">
       {title}
     </h2>
     {children}
   </section>
 );
 
-const ProjectLink = ({ href, title, desc, github }) => (
-  <li className="mb-4">
-    <div className="flex items-center justify-between">
-      <Link href={href} className="font-bold text-lg hover:underline">
-        {title}
-      </Link>
-      {github && (
-        <a
-          href={github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-muted hover:text-text transition-colors"
-        >
-          <FiGithub size={20} />
-        </a>
-      )}
+const ExperienceItem = ({ role, org, period, tech, bullets }) => (
+  <div className="mb-8">
+    <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+      <h3 className="font-medium text-fg">{role}</h3>
+      <span className="text-sm text-muted">{period}</span>
     </div>
-    <p className="text-muted mt-1">{desc}</p>
-  </li>
+    <p className="text-sm text-muted mb-2">{org}</p>
+    {tech && <p className="text-xs text-muted mb-2">{tech}</p>}
+    <ul className="text-sm text-fg space-y-1 list-disc list-inside">
+      {bullets.map((b, i) => (
+        <li key={i}>{b}</li>
+      ))}
+    </ul>
+  </div>
 );
 
-const EducationItem = ({ title, institution, certificateLink }) => (
-  <li className="mb-4">
-    <div className="flex items-center justify-between sm:justify-start">
-      <h3 className="font-medium text-lg">{title}</h3>
-      {certificateLink && (
-        <a
-          href={certificateLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="ml-2 text-muted hover:text-text transition-colors"
-          title="View Certificate"
-        >
-          <FiExternalLink size={16} />
-        </a>
+const ProjectItem = ({ title, period, tech, desc, href, github }) => (
+  <div className="mb-6">
+    <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+      {href ? (
+        <Link href={href} className="font-medium text-fg hover:underline">
+          {title}
+        </Link>
+      ) : (
+        <span className="font-medium text-fg">{title}</span>
       )}
+      <span className="text-sm text-muted">{period}</span>
     </div>
-    <p className="text-muted">{institution}</p>
-  </li>
+    {tech && <p className="text-xs text-muted mb-1">{tech}</p>}
+    <p className="text-sm text-fg">{desc}</p>
+    {github && (
+      <a
+        href={github}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-1 text-sm text-muted hover:text-fg mt-2"
+      >
+        <FiGithub size={14} /> GitHub
+      </a>
+    )}
+  </div>
 );
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow container mx-auto px-16 py-6 sm:py-8 max-w-3xl">
-        <header className="mb-6 sm:mb-8">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-2">
+      <main className="flex-grow max-w-readable mx-auto px-5 py-12 sm:py-16">
+        <header className="mb-12">
+          <h1 className="text-2xl font-semibold text-fg mb-1">
             Thomas Cormican
           </h1>
+          <p className="text-muted">
+            B.Sc Computer Science, Maynooth University.
+          </p>
         </header>
 
         <Section id="about" title="About">
-          <p className="text-lg">
-            Computer Science student at Maynooth University.
+          <p className="text-fg leading-relaxed">
+            Computer Science student at Maynooth University with a focus on
+            software development and practical application. I work on academic
+            tooling, contribute to open source, and tutor at the Computer
+            Science Centre.
           </p>
         </Section>
 
-        <Section id="education" title="Education">
-          <ul className="space-y-4">
-            <EducationItem
-              title="Computer Science"
-              institution="Maynooth University"
-            />
-            <EducationItem
-              title="Machine Learning Specialization"
-              institution="Stanford University, DeepLearning.ai"
-              certificateLink="https://coursera.org/share/a5bedc97c91ddcbed053cd4ffd23cbf0"
-            />
-            <EducationItem
-              title="CompTIA A+"
-              institution="CompTIA"
-              certificateLink="https://www.credly.com/badges/5e215f55-c79a-4c9e-b6be-992511f7cd2f/public_url"
-            />
-            <EducationItem
-              title="CompTIA Network+"
-              institution="CompTIA"
-              certificateLink="https://www.credly.com/badges/b5a29352-8a87-4164-9e2e-d13ea1a4953e/public_url"
-            />
-            <EducationItem
-              title="Practical Deep Learning for Coders"
-              institution="Fast.ai"
-            />
-            <EducationItem
-              title="Kaggle Courses"
-              institution="Kaggle"
-              certificateLink="/kaggle.pdf"
-            />
-          </ul>
-        </Section>
-
-        <Section id="skills" title="Skills">
-          <ul className="grid grid-cols-2 gap-2">
-            <li>JavaScript (React, Node.js)</li>
-            <li>Python (ML, Data Analysis)</li>
-            <li>HTML/CSS</li>
-            <li>SQL and NoSQL Databases</li>
-            <li>Git</li>
-          </ul>
+        <Section id="experience" title="Experience">
+          <ExperienceItem
+            role="IT Services Computer Assistant"
+            org="Maynooth University"
+            period="2024 – Present"
+            tech="Windows, macOS, Ivanti, Pubble"
+            bullets={[
+              "Frontline support for hardware, software, and network issues.",
+              "Troubleshoot and maintain computing infrastructure.",
+              "Manage support tickets through Ivanti and Pubble.",
+            ]}
+          />
+          <ExperienceItem
+            role="Tutor"
+            org="Computer Science Centre"
+            period="2024 – Present"
+            tech="Java, Python, HTML/CSS"
+            bullets={[
+              "Mentor learners in programming fundamentals.",
+              "Foster a creative and collaborative learning environment.",
+              "Provide individualized support on coding projects and course work.",
+            ]}
+          />
         </Section>
 
         <Section id="projects" title="Projects">
-          <ul className="space-y-6">
-            <ProjectLink
-              href="/blog/0"
-              title="Diffedit Reimplementation"
-              desc="AI-driven image manipulation using deep learning techniques."
-            />
-            <ProjectLink
-              href="/"
-              title="Portfolio Site"
-              desc="This website"
-              github="https://github.com/tomoige/personal-site"
-            />
-            <ProjectLink
-              href="https://oxycholy.com"
-              title="Oxycholy"
-              desc="Full-stack lead generation website with SEO optimization."
-              github="https://github.com/tomoige/oxycholy"
-            />
-            <ProjectLink
-              href="https://merge-e2d8c.web.app/"
-              title="Merge"
-              desc="Wordle-inspired word puzzle game built with React."
-              github="https://github.com/tomoige/merge"
-            />
-            <ProjectLink
-              href="https://multitimer95.vercel.app/"
-              title="Multitimer95"
-              desc="Windows 95-inspired multi-timer web application."
-              github="https://github.com/tomoige/multitimer95"
-            />
+          <ProjectItem
+            title="CSPrime"
+            period="Jan 2025 – Present"
+            tech="React, JavaScript, Git"
+            desc="Academic visualization tool for the Computer Science curriculum. Implementing UI improvements and optimizing data visualization for module interdependencies."
+            github="https://github.com/tomoige/csprime"
+          />
+          <ProjectItem
+            title="DiffEdit reimplementation"
+            period="2024"
+            tech="Python, deep learning"
+            desc="Reimplementation of the DiffEdit paper for semantic image editing using CLIP and Stable Diffusion."
+            href="/blog/0"
+          />
+          <ProjectItem
+            title="Merge"
+            period="—"
+            desc="Wordle-inspired word puzzle game built with React."
+            href="https://merge-e2d8c.web.app/"
+            github="https://github.com/tomoige/merge"
+          />
+          <ProjectItem
+            title="Multitimer95"
+            period="—"
+            desc="Windows 95–inspired multi-timer web app."
+            href="https://multitimer95.vercel.app/"
+            github="https://github.com/tomoige/multitimer95"
+          />
+          <ProjectItem
+            title="This site"
+            period="—"
+            desc="Portfolio and blog."
+            github="https://github.com/tomoige/personal-site"
+          />
+        </Section>
+
+        <Section id="education" title="Education">
+          <div className="mb-6">
+            <h3 className="font-medium text-fg">B.Sc Computer Science</h3>
+            <p className="text-sm text-muted">
+              Maynooth University · Graduating 2028
+            </p>
+            <p className="text-xs text-muted mt-1">
+              Current grade average: 98%
+            </p>
+          </div>
+        </Section>
+
+        <Section id="skills" title="Skills">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
+            <div>
+              <p className="text-muted text-xs uppercase tracking-wider mb-2">
+                Languages
+              </p>
+              <p className="text-fg">
+                Python, R, HTML, CSS, JavaScript, SQL, Bash
+              </p>
+            </div>
+            <div>
+              <p className="text-muted text-xs uppercase tracking-wider mb-2">
+                Tools & technologies
+              </p>
+              <p className="text-fg">
+                Git, Linux, TensorFlow, scikit-learn, pandas, NumPy, SEO tools
+              </p>
+            </div>
+          </div>
+        </Section>
+
+        <Section id="awards" title="Certifications & awards">
+          <ul className="text-sm text-fg space-y-1">
+            <li>1st Place — Maynooth CSC Coding Competition (2025)</li>
+            <li>1st Place — Maynooth CSC Programathon (2025)</li>
+            <li>Geary Prize for 1st Year Statistics (2025)</li>
+            <li>CompTIA A+ · CompTIA Network+</li>
+            <li>Machine Learning Specialization (DeepLearning.AI)</li>
+            <li>Microsoft Certified: Azure Fundamentals</li>
           </ul>
         </Section>
 
         <Section id="contact" title="Contact">
-          <div className="flex items-center">
-            <FiMail size={20} className="mr-2" />
+          <div className="flex flex-wrap gap-6 text-sm">
             <a
               href="mailto:thomascormican123@gmail.com"
-              className="hover:underline"
+              className="inline-flex items-center gap-2 text-muted hover:text-fg"
             >
-              thomascormican123@gmail.com
+              <FiMail size={16} /> thomascormican123@gmail.com
+            </a>
+            <a
+              href="https://github.com/tomoige"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-muted hover:text-fg"
+            >
+              <FiGithub size={16} /> github.com/tomoige
+            </a>
+            <a
+              href="https://www.linkedin.com/in/thomas-cormican-82077b302/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-muted hover:text-fg"
+            >
+              <FiLinkedin size={16} /> LinkedIn
             </a>
           </div>
         </Section>
       </main>
-      <footer className="flex flex-col items-center justify-center border-t border-muted py-3 sm:py-4 text-center text-xs sm:text-sm text-muted">
-        <Link
-          className="text-xl mb-2 w-fit hover:text-text"
-          href="https://github.com/tomoige"
-        >
-          <FiGithub />
-        </Link>
-        <div>&copy; 2024 Thomas Cormican. All rights reserved.</div>
+      <footer className="border-t border-border py-6 text-center text-sm text-muted">
+        © {new Date().getFullYear()} Thomas Cormican
       </footer>
     </div>
   );
