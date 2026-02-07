@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Navbar from "./components/Navbar";
-import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
+import { FiExternalLink, FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 
 const Section = ({ id, title, children }) => (
   <section id={id} className="mb-12">
@@ -109,6 +109,7 @@ export default function Home() {
             tech="React, JavaScript, Git"
             desc="Academic visualization tool for the Computer Science curriculum. Implementing UI improvements and optimizing data visualization for module interdependencies."
             github="https://github.com/tomoige/csprime"
+            href="https://csprime.org/"
           />
           <ProjectItem
             title="DiffEdit reimplementation"
@@ -158,7 +159,7 @@ export default function Home() {
                 Languages
               </p>
               <p className="text-fg">
-                Python, R, HTML, CSS, JavaScript, SQL, Bash
+                Java, Python, R, HTML, CSS, JavaScript, SQL, Bash
               </p>
             </div>
             <div>
@@ -177,9 +178,49 @@ export default function Home() {
             <li>1st Place — Maynooth CSC Coding Competition (2025)</li>
             <li>1st Place — Maynooth CSC Programathon (2025)</li>
             <li>Geary Prize for 1st Year Statistics (2025)</li>
-            <li>CompTIA A+ · CompTIA Network+</li>
-            <li>Machine Learning Specialization (DeepLearning.AI)</li>
-            <li>Microsoft Certified: Azure Fundamentals</li>
+            <li>
+              <a
+                href="https://www.credly.com/badges/d7e1cfdf-8f3e-4084-b96d-3ee145e94492/public_url"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1"
+              >
+                CompTIA A+{" "}
+                <FiExternalLink size={12} className="shrink-0 opacity-70" />
+              </a>{" "}
+              ·{" "}
+              <a
+                href="https://www.credly.com/badges/b5a29352-8a87-4164-9e2e-d13ea1a4953e/public_url"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1"
+              >
+                CompTIA Network+{" "}
+                <FiExternalLink size={12} className="shrink-0 opacity-70" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.coursera.org/account/accomplishments/specialization/2GZ73ZHN2DWE?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=s12n"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1"
+              >
+                Machine Learning Specialization (DeepLearning.AI){" "}
+                <FiExternalLink size={12} className="shrink-0 opacity-70" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.credly.com/badges/d47d1b90-38b2-46e4-8647-52918b28b6f9/public_url"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1"
+              >
+                Microsoft Certified: Azure Fundamentals{" "}
+                <FiExternalLink size={12} className="shrink-0 opacity-70" />
+              </a>
+            </li>
           </ul>
         </Section>
 
