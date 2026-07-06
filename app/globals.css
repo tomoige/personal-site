@@ -2,7 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-white text-fg antialiased;
-  font-feature-settings: "kern" 1;
+@layer base {
+  body {
+    @apply bg-paper text-ink antialiased;
+  }
+
+  ::selection {
+    @apply bg-link/15 text-ink;
+  }
+
+  a {
+    @apply text-link underline decoration-link/40 underline-offset-2 transition-colors hover:decoration-link;
+  }
 }

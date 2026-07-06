@@ -4,16 +4,20 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./lib/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        fg: "#171717",
-        muted: "#737373",
-        border: "#e5e5e5",
+        paper: "#fffef9",
+        ink: "#111111",
+        muted: "#555555",
+        rule: "#dddddd",
+        link: "#0055cc",
       },
-      maxWidth: {
-        readable: "65ch",
+      fontFamily: {
+        display: ["Syne", "system-ui", "sans-serif"],
+        sans: ["DM Sans", "system-ui", "sans-serif"],
       },
     },
   },
